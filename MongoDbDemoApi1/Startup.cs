@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MongoDbDemoApi1.MongodbHepler;
 
 namespace MongoDbDemoApi1
 {
@@ -28,6 +29,7 @@ namespace MongoDbDemoApi1
                 steup.ConnectionString = "mongodb://127.0.0.1:27017";
                 steup.DatabaseName = "TestDb1";
             });
+            services.AddSingleton(typeof(IMongoDbBase), typeof(MongoDBBase));
             services.AddControllers();
         }
 
